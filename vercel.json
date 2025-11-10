@@ -7,6 +7,14 @@
     {
       "source": "/studio/:path*",
       "destination": "/sanity.html"
+    },
+    {
+      "source": "/sanity",
+      "destination": "/sanity.html"
+    },
+    {
+      "source": "/sanity/:path*",
+      "destination": "/sanity.html"
     }
   ],
   "headers": [
