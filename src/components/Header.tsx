@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const categories = ["Investing", "Guides", "Opinion", "Updates"];
+const categories = ["Investing", "Guides", "Opinion", "Updates", "Drama"];
 
 export default function Header() {
   const location = useLocation();

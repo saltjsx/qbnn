@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const categories = ["Investing", "Guides", "Opinion", "Updates"];
+const categories = ["Investing", "Guides", "Opinion", "Updates", "Drama"];
 
 export default function Footer() {
   return (

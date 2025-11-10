@@ -54,7 +54,10 @@ export default function Home() {
           <div className="main-content">
             {featuredArticle && (
               <section className="featured-section">
-                <Link to={`/article/${featuredArticle.slug.current}`} style={{ textDecoration: "none", color: "inherit" }}>
+                <Link
+                  to={`/article/${featuredArticle.slug.current}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <article className="featured-article">
                     <div className="featured-image">
                       <img
@@ -163,16 +166,18 @@ export default function Home() {
             <div className="sidebar-section">
               <h3 className="sidebar-title">Categories</h3>
               <ul className="categories-list">
-                {["Investing", "Guides", "Opinion", "Updates"].map((category) => (
-                  <li key={category}>
-                    <Link
-                      to={`/category/${category.toLowerCase()}`}
-                      className="category-link"
-                    >
-                      {category}
-                    </Link>
-                  </li>
-                ))}
+                {["Investing", "Guides", "Opinion", "Updates", "Drama"].map(
+                  (category) => (
+                    <li key={category}>
+                      <Link
+                        to={`/category/${category.toLowerCase()}`}
+                        className="category-link"
+                      >
+                        {category}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           </aside>

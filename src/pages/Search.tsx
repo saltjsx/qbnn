@@ -108,15 +108,17 @@ export default function Search() {
             <h2>No articles found for "{query}"</h2>
             <p>Try different keywords or browse our categories:</p>
             <div className="search-categories">
-              {["Investing", "Guides", "Opinion", "Updates"].map((category) => (
-                <Link
-                  key={category}
-                  to={`/category/${category.toLowerCase()}`}
-                  className="search-category-link"
-                >
-                  {category}
-                </Link>
-              ))}
+              {["Investing", "Guides", "Opinion", "Updates", "Drama"].map(
+                (category) => (
+                  <Link
+                    key={category}
+                    to={`/category/${category.toLowerCase()}`}
+                    className="search-category-link"
+                  >
+                    {category}
+                  </Link>
+                ),
+              )}
             </div>
           </div>
         )}

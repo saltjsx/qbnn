@@ -1,66 +1,67 @@
-import { defineType, defineField } from 'sanity'
+import { defineType, defineField } from "sanity";
 
 export default defineType({
-  name: 'article',
-  title: 'Article',
-  type: 'document',
+  name: "article",
+  title: "Article",
+  type: "document",
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
+      name: "category",
+      title: "Category",
+      type: "string",
       options: {
         list: [
-          { title: 'Investing', value: 'investing' },
-          { title: 'Guides', value: 'guides' },
-          { title: 'Opinion', value: 'opinion' },
-          { title: 'Updates', value: 'updates' },
+          { title: "Investing", value: "investing" },
+          { title: "Guides", value: "guides" },
+          { title: "Opinion", value: "opinion" },
+          { title: "Updates", value: "updates" },
+          { title: "Drama", value: "drama" },
         ],
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
       rows: 3,
       validation: (Rule) => Rule.required().max(200),
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main Image',
-      type: 'image',
+      name: "mainImage",
+      title: "Main Image",
+      type: "image",
       options: {
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'array',
+      name: "body",
+      title: "Body",
+      type: "array",
       of: [
         {
-          type: 'block',
+          type: "block",
         },
         {
-          type: 'image',
+          type: "image",
           options: {
             hotspot: true,
           },
@@ -68,36 +69,36 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'string',
+      name: "author",
+      title: "Author",
+      type: "string",
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: "publishedAt",
+      title: "Published at",
+      type: "datetime",
       initialValue: () => new Date().toISOString(),
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'featured',
-      title: 'Featured Article',
-      type: 'boolean',
+      name: "featured",
+      title: "Featured Article",
+      type: "boolean",
       initialValue: false,
     }),
   ],
   preview: {
     select: {
-      title: 'title',
-      category: 'category',
-      media: 'mainImage',
+      title: "title",
+      category: "category",
+      media: "mainImage",
     },
     prepare(selection) {
-      const { category } = selection
+      const { category } = selection;
       return {
         ...selection,
-        subtitle: category ? category.toUpperCase() : 'No category',
-      }
+        subtitle: category ? category.toUpperCase() : "No category",
+      };
     },
   },
-})
+});
