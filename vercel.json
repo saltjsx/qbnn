@@ -18,7 +18,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -41,6 +41,3 @@
     }
   ]
 }
-```
-
-This change adds a catch-all rewrite rule `"source": "/(.*)"` that redirects all routes to `/`, which serves your `index.html`. This allows React Router to intercept the routes and handle them on the client side. The Sanity studio routes are matched first, so they won't be affected by this catch-all rule.

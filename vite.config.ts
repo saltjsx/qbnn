@@ -5,6 +5,15 @@ import { resolve } from "path";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/studio/, to: "/sanity.html" },
+        { from: /^\/sanity/, to: "/sanity.html" },
+        { from: /./, to: "/index.html" },
+      ],
+    },
+  },
   build: {
     rollupOptions: {
       input: {
